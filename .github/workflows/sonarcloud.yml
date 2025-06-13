@@ -2,11 +2,11 @@ name: SonarCloud analysis
 
 on:
   push:
-    branches: 
+    branches:
       - master
-      - mejoras-calidad     
+      - mejoras-calidad
   pull_request:
-    branches: 
+    branches:
       - master
       - mejoras-calidad
   workflow_dispatch:
@@ -25,10 +25,10 @@ jobs:
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2.2.0
         env:
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }} 
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.projectKey=**DweskZ_neurolog-app**         # 👈 cambia por el Project Key real
-            -Dsonar.organization=**dweskz**                    # 👈 cambia por tu Organization Key real
-            -Dsonar.sources=.                                  # 👈 escanea todo el repo
-            -Dsonar.branch.name=${{ github.ref_name }}         # 👈 detecta automáticamente la rama activa
+            -Dsonar.projectKey=DweskZ_neurolog-app
+            -Dsonar.organization=dweskz
+            -Dsonar.sources=.
+            -Dsonar.branch.name=${{ github.ref_name }}
